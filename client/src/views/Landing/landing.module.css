@@ -1,0 +1,42 @@
+.landingContain{
+    width: 100vw;
+    height: 100vh;
+    background-image: url('https://images5.alphacoders.com/353/353018.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    display: flex;
+    align-items: center;
+
+}
+.landingSubContain{
+    width: 550px;
+    height: 140px;
+    margin: 30px;
+    border: solid 1px ;
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
+    padding: 10px;
+}
+.landingTitle{
+    font-size: 55px;
+    color: yellow;
+}
+
+.landingBtn{
+    width: 100px;
+    height: 35px;
+    border-radius: 20px;
+    border: none;
+    background-color: transparent;
+    border: solid 1px;
+    cursor: pointer;
+    margin: 10px;
+    font-size: 16px;
+}
+.landingBtn:hover{
+    background-color: rgb(65, 90, 119);
+    transform: scale(1.06);
+    transition: transform .3s;
+    transition: background-color .3s;
+}

@@ -1,0 +1,24 @@
+.filterContain{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+.filterBtn{
+    margin: 5px;
+    padding: 4px 8px;
+    border-radius: 10px;
+    border: 0;
+    background-color:rgb(65, 90, 119);
+    font-size: 15px;
+}
+.filterBtn:hover{
+    color: rgb(0, 119, 255);
+    cursor: pointer;
+}
+.filterSelect{
+    height: 25px;
+    margin: 0 10px;
+    background-color: black;
+    border: none;
+    border: solid 1px rgb(0, 119, 255);
+}

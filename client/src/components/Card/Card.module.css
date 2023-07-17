@@ -1,0 +1,32 @@
+.cardContainer{
+    width: 220px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    padding: 10px 0;
+    text-align: center;
+    border-radius: 20px;
+    justify-content: space-evenly;
+    border: solid 2px rgb(0, 119, 255);
+    background-color:rgb(65, 90, 119);
+}
+.cardContainer:hover{
+    transform: scale(1.06);
+    background-color: rgb(84, 115, 151);
+    transition: transform .3s;
+}
+.bandera{
+    width: 150px;
+    height: 90px;
+    box-shadow: 7px 7px  5px white;
+}
+.navLinkCard{
+    text-decoration: none;
+}
+.textCard{
+    line-height: 90%;
+    color: rgb(255, 255, 255);
+}

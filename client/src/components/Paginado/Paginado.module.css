@@ -1,0 +1,27 @@
+.paginadoContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px 0;
+}
+.paginadoContainer .numPage{
+    background-color: rgb(218, 218, 218);
+    margin: 5px;
+    width: 25px;
+    height: 26px;
+    border-radius: 20%;
+    text-align: center;
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid 2px rgb(10, 10, 10);
+}
+.paginadoContainer .numPage:hover{
+    background-color: rgb(0, 0, 0);
+}
+.paginadoContainer .numPage a{
+    cursor: pointer;
+    color: white;
+
+}

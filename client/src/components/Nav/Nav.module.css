@@ -1,0 +1,27 @@
+.navContainer{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    background-color: rgba(75, 83, 124, 0.425)
+}
+
+.imgLogo{
+    width: 70px;
+    padding-top: 15px;
+    margin-left: 10px;
+}
+.btnNav{
+    margin: 20px;
+    padding: 4px 8px;
+    border-radius: 10px;
+    border: 0;
+    background-color:rgb(65, 90, 119);
+    font-size: 15px;
+}
+.btnNav:hover{
+    color: rgb(0, 119, 255);
+    cursor: pointer;
+}
