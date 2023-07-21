@@ -4,6 +4,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    color: white;
 }
 .detailSubContain{
     border: solid 1px ;
@@ -21,7 +22,7 @@
 }
 .detailCountryImg{
     width: 100%;
-    height: 100%;
+    height: 350px;
     border-radius: 20px 0 0 0 ;
 }
 .detailContainText{
@@ -35,6 +36,9 @@
 }
 .detailText{
     font-size: 30px;
+}
+.titleActivities{
+    text-align: center;
 }
 .detailContainActivity{
     width: 100%;
@@ -62,7 +66,7 @@
     border: 0;
     background-color:rgb(65, 90, 119);
     font-size: 20px;
-
+    color: white;
 }
 .detailBtn:hover{
     color: rgb(0, 119, 255);

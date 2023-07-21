@@ -4,24 +4,23 @@
     align-items: center;
     margin: 15px 0;
 }
-.paginadoContainer .numPage{
-    background-color: rgb(218, 218, 218);
+.active{
+    background-color: rgb(100, 100, 100);
+    width: 28px;
+    height: 30px;
+    border-radius: 6px;
     margin: 5px;
-    width: 25px;
-    height: 26px;
-    border-radius: 20%;
-    text-align: center;
-    list-style-type: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: solid 2px rgb(10, 10, 10);
-}
-.paginadoContainer .numPage:hover{
-    background-color: rgb(0, 0, 0);
-}
-.paginadoContainer .numPage a{
-    cursor: pointer;
     color: white;
-
+    border: none;
+    cursor: pointer;
+    border: solid 2px black;
+    font-size: 16px;
+}
+.active:hover{
+    background-color: black;
+    border-radius: 6px;
+}
+.active:focus{
+    background-color: black;
+    border: solid 2px rgb(0, 119, 255);
 }

@@ -1,23 +1,27 @@
 import { useDispatch, useSelector } from "react-redux";
-import { getCountries, filterCountryByContinent, filterByActivity } from "../../redux/action";
+import { filterByActivity } from "../../redux/action";
 import style from './FiltroOrdenamiento.module.css';
 
-const FiltroOrdenamiento = ({handlerOrderByName, handlerByPopulation}) => {
+// Este componente FiltroOrdenamiento proporciona una interfaz para filtrar y
+// ordenar países. Utiliza React Redux para manejar el estado y las acciones relacionadas con la store. Cuando los 
+// usuarios seleccionan una opcion en las pestañas de selectores, se activan las funciones de manejo para realizar 
+// las acciones correspondientes 
+
+const FiltroOrdenamiento = ({handlerOrderByName, handlerByPopulation, handleClick, handleFilterContinent}) => {
     const dispatch = useDispatch();
-    const activities = useSelector(state => state.activities)
-
-    const handleClick = (event) => {
-        event.preventDefault();
-        dispatch(getCountries())
-    }
-
-    const handleFilterContinent = (event) => {
-        dispatch(filterCountryByContinent(event.target.value))
-    }
+    // El siguiente es un hook que utilizamos para acceder a la lista de actividades disponiblle e la store
+    const activities = useSelector(state => state.activities);  
+    
+    // Funcion encargada de despachar la accion de filtrar 
+    // los paises segun el nombre de actividad que haya seleccionado
     const handleActivity = (event) => {
+        event.preventDefault();
         dispatch(filterByActivity(event.target.value))
     }
+    //Extrae solo los nombres de las actividades de la lista activities.
     let values = activities.map(element => element.name)
+    // Utiliza un conjunto para obtener valores únicos de los nombres de actividades.
+    // Esto asegura que no haya duplicados en las opciones del selector.
     const onlyValues = [...new Set(values)]
 
 
@@ -25,13 +29,12 @@ const FiltroOrdenamiento = ({handlerOrderByName, handlerByPopulation}) => {
         <div className={style.filterContain}>
                 <button className={style.filterBtn} onClick={element => {handleClick(element)}}>Todos los Paises</button>
                 <select className={style.filterSelect} onChange={handlerOrderByName}>
-                    <option >Orden Alfabetico</option>
+                    <option>Orden Alfabetico</option>
                     <option value='asc'>A - Z</option>
                     <option value='des'>Z - A</option>
                 </select>
                 <select className={style.filterSelect} onChange={(element) => {handleFilterContinent(element)}}>
-
-                    <option value="All">Todos los continentes</option>
+                    <option value="All">Todos los Continentes</option>
                     <option value="Asia">Asia</option>
                     <option value="North America">Nortemérica</option>
                     <option value="South America">Sudamerica</option>
@@ -46,8 +49,7 @@ const FiltroOrdenamiento = ({handlerOrderByName, handlerByPopulation}) => {
                     <option value="Mayor">Max</option>
                 </select>
                 <select className={style.filterSelect} onChange={handleActivity}>
-                    {/* <option >Actividad</option> */}
-                    <option value='All'>Actividades Creadas</option>
+                    <option value='All'>Actividades</option>
                     {
                         onlyValues?.map((element) => {
                             return <option key={element} value={element}>{element}</option>

@@ -22,7 +22,9 @@
     font-size: 55px;
     color: yellow;
 }
-
+.landingMsg{
+    color: white;
+}
 .landingBtn{
     width: 100px;
     height: 35px;
@@ -33,6 +35,7 @@
     cursor: pointer;
     margin: 10px;
     font-size: 16px;
+    color: white;
 }
 .landingBtn:hover{
     background-color: rgb(65, 90, 119);

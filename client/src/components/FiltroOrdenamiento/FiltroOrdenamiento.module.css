@@ -10,6 +10,7 @@
     border: 0;
     background-color:rgb(65, 90, 119);
     font-size: 15px;
+    color: white;
 }
 .filterBtn:hover{
     color: rgb(0, 119, 255);
@@ -21,4 +22,5 @@
     background-color: black;
     border: none;
     border: solid 1px rgb(0, 119, 255);
+    color: rgb(231, 231, 231);
 }

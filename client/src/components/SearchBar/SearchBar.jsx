@@ -2,7 +2,9 @@ import {useState} from 'react';
 import { useDispatch } from 'react-redux';
 import style from './SearchBar.module.css'
 
-
+// Este componente SearchBar proporciona una barra de búsqueda donde los usuarios pueden ingresar el nombre de un
+// país y buscarlo. Al hacer clic en el botón "Buscar", se activa la función onSearch(name),
+// donde name es la coincidencia de búsqueda introducido por el usuario.
 
 const SearchBar = ({onSearch}) => {
     const dispatch = useDispatch()
@@ -12,8 +14,8 @@ const SearchBar = ({onSearch}) => {
         setName(event.target.value)
     }
 
-    const handleClick = async() =>{
-        await dispatch(onSearch(name))
+    const handleClick = () =>{
+        dispatch(onSearch(name))
     }
 
     return(

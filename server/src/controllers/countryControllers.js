@@ -3,8 +3,9 @@ const axios = require('axios')
 const { Country, Activity } = require('../db')
 const { Op } = require('sequelize');
 
-
 const getAllCountries = async () => {
+  // Esta funcion busca todos los países en la base de datos y también obtiene información sobre las actividades
+  // asociadas a cada país y nos devuelve una lista de países, cada uno con sus actividades.
   const findAllCountries = async () => await Country.findAll({
     include: [{
       model: Activity,
@@ -34,6 +35,7 @@ const getAllCountries = async () => {
   }
 }
 
+// Esta funcion realiza una busqueda por id en la Base de Datos
 const getCountryById = async (id) => {
 
   const countryFilter = await Country.findAll({
@@ -48,6 +50,9 @@ const getCountryById = async (id) => {
   })
   return countryFilter
 }
+
+// Esta funcion realiza una busqueda por atributo name en la Base de Datos
+// no es necesario una coincidencia exacta para la busqueda
 const getCountryByName = async (name) => {
 
   const countryFiltered = await Country.findAll({

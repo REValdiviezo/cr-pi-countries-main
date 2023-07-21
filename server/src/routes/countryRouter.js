@@ -3,7 +3,8 @@ const {getAllCountries, getCountryById, getCountryByName} = require ('../control
 
 
 const countriesRouter = Router();
-
+// En esta ruta se implementa la busqueda por nombre
+// en caso de que la query este vacia se devuelven todos los datos
 countriesRouter.get('/', async (req, res)=>{
     const { name } = req.query
 
@@ -26,6 +27,7 @@ countriesRouter.get('/', async (req, res)=>{
     }
 })
 
+// En esta ruta implementamos la busqueda por id
 countriesRouter.get('/:id', async (req, res) => {
     
     const { id } = req.params
@@ -44,9 +46,9 @@ countriesRouter.get('/:id', async (req, res) => {
     }   
 })
 
-// Handle requests to unknown routes
+// Aqui realizamos el manejo de rutas desconocidas
 countriesRouter.all('*', (req, res) => {
-    res.status(404).send(`Unknown route: ${req.method} ${req.originalUrl}`);
+    res.status(404).send(`Ruta Desconocida: ${req.method} ${req.originalUrl}`);
 });
 
 module.exports = countriesRouter;

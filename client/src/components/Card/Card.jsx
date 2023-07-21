@@ -1,6 +1,10 @@
 import style from './Card.module.css'
 import { NavLink } from "react-router-dom";
 
+// Este componente Card muestra una tarjeta que contiene información básica de un país, como su nombre, continente,
+// población y una imagen de su bandera. Además, la tarjeta se convierte en un enlace que redirige a una página de
+// detalles específica del país cuando se hace clic en ella, gracias al uso de NavLink y el ID del país
+
 const Card = ({ id, name, image, continent, population }) => {
     return (
         <NavLink to={`/detail/${id}`} className={style.navLinkCard}>

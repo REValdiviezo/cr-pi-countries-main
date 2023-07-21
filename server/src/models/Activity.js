@@ -16,16 +16,16 @@ module.exports = (sequelize) => {
         allowNull: false
     },
     difficulty: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
         allowNull: false,
-        // validate: {
-        //     min: 1,
-        //     max: 5
-        // }
+        validate: {
+            min: 1,
+            max: 5
+        }
     },
     duration: {
         //En horas
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
     },
     season: {
         type: DataTypes.ENUM("Verano", "Otoño", "Invierno", "Primavera"),

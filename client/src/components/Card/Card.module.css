@@ -11,7 +11,7 @@
     border-radius: 20px;
     justify-content: space-evenly;
     border: solid 2px rgb(0, 119, 255);
-    background-color:rgb(65, 90, 119);
+    background-color:rgba(65, 90, 119, 0.842);
 }
 .cardContainer:hover{
     transform: scale(1.06);
@@ -21,7 +21,7 @@
 .bandera{
     width: 150px;
     height: 90px;
-    box-shadow: 7px 7px  5px white;
+    box-shadow: 7px 7px  5px rgb(39, 39, 39);
 }
 .navLinkCard{
     text-decoration: none;
@@ -29,4 +29,5 @@
 .textCard{
     line-height: 90%;
     color: rgb(255, 255, 255);
+    text-shadow: 5px 5px 5px rgb(39, 39, 39);
 }

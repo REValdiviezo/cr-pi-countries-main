@@ -5,7 +5,7 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
-    background-color: rgba(75, 83, 124, 0.425)
+    background-color: rgba(75, 83, 124, 0.425);
 }
 
 .imgLogo{
@@ -20,6 +20,7 @@
     border: 0;
     background-color:rgb(65, 90, 119);
     font-size: 15px;
+    color: white;
 }
 .btnNav:hover{
     color: rgb(0, 119, 255);

@@ -4,15 +4,20 @@ import { useDispatch, useSelector } from "react-redux"
 import { getCountry, cleanDetail } from "../../redux/action";
 import style from './detail.module.css';
 
+// El componente Detail muestra los detalles de un país específico, incluyendo su información general y las
+// actividades turísticas asociadas a él. Utiliza el estado global de Redux para acceder a la información del país
+// mediante el hook useSelector y envía acciones a la store mediante el hook useDispatch. 
+// Además, utiliza useEffect para cargar los detalles del país cuando el componente se monta y limpiar los recursos
+// cuando el componente se desmonta.
+
 const Detail = () => {
     const { id } = useParams();
     const dispatch = useDispatch();
-    const country = useSelector(state => state.countryDetail)
-
+    const country = useSelector(state => state.countryDetail);
     useEffect(() => {
-        dispatch(getCountry(id))
+        dispatch(getCountry(id)) // al montarse se encarga de trae el pais indicado por id
         return () => {
-            dispatch(cleanDetail()) // despacha cuando se desmonta
+            dispatch(cleanDetail()) // cuando se desmonta, limpia el estado countryDetail
         }
     }, [])
 
@@ -24,7 +29,8 @@ const Detail = () => {
                     <div className={style.detailCountry}>
                         <img className={style.detailCountryImg} src={country[0]?.image} alt="flag" />
                     </div>
-                    <div className={style.detailContainText}>
+                    {/* Informacion completa del pais junto con las actividades a las que estan relacionadas */}
+                    <div className={style.detailContainText}> 
                         <h4 className={style.detailText}>ID: {country[0]?.id}</h4>
                         <h4 className={style.detailText}>Name: {country[0]?.name}</h4>
                         <h4 className={style.detailText}>Capital: {country[0]?.capital}</h4>
@@ -34,13 +40,14 @@ const Detail = () => {
                         <h4 className={style.detailText}>Population: {country[0]?.population}</h4>
                     </div>
                 </div>
-                <div className={style.detailContainActivity}>
+                <div className={style.titleActivities}>Actividades Turisticas</div>
+                <div className={style.detailContainActivity}> 
                     {
                         (country[0]?.Activities.length > 0) ?
-                            <> {country[0]?.Activities?.map(e => (
+                            <> {country[0].Activities.map(e => (
                                 <div className={style.detailCardActivity}>
                                     <p>{[`Actividad: ${e.name}`, <br />,
-                                    `Dificultad: ${e.difficulty}`, <br />,
+                                    `Dificultad Nivel: ${e.difficulty}`, <br />,
                                     `Duración: ${e.duration} hs`, <br />,
                                     `Estación: ${e.season}`]}
                                     </p>

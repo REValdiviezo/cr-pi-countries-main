@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { postActivity, getCountries } from "../../redux/action";
-import { useEffect } from "react";
+import { postActivity } from "../../redux/action";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import validation from "./validation"
@@ -10,7 +9,7 @@ import style from './Form.module.css';
 const Form = () => {
 
     const dispatch = useDispatch();
-    const countries = useSelector(state => state.countries)
+    const countries = useSelector(state => state.allCountries)
 
     const [errors, setErrors] = useState({})
     const [selected, setSelected] = useState("");
@@ -79,7 +78,7 @@ const Form = () => {
             pais: form.pais.filter((country) => country !== event.target.value)
         }))
     }
-    console.log(form);
+
     const handleSubmit = (event) => {
         event.preventDefault();
         if (form.name === '' && form.duration === '' && form.difficulty === '' && form.season === '' && form.pais === '') return alert('Debe completar todos los campos')
@@ -103,21 +102,15 @@ const Form = () => {
         handleSubmit(event)
     }
 
-    const disabled = (form.name === "" || form.difficulty === "" || form.duration === "" || form.season === "" || form.pais.length === 0)
-
-
-    useEffect(() => {
-        dispatch(getCountries())
-    }, [])
-
-
+    const disabled = (form.name === "" || form.difficulty === "" || form.duration === "" || form.season === "" || form.pais.length === 0);
 
 
     return (
         <div className={style.formContain}>
             <form onSubmit={handleSubmit} className={style.formSubContain}>
-                <h1 className={style.formTitle}>Crear una Actividad</h1>
-
+                <div className={style.formContainTitle}>
+                    <h1 className={style.formTitle}>Crear una Actividad</h1>
+                </div>
                 <div>
                     <div>
                         <label>Nombre: </label>
@@ -144,7 +137,7 @@ const Form = () => {
 
                 <div>
                     <select className={style.formInput} onChange={handleSeasons}>
-                        <option className={style.formOption} value="Vacío">Seleccione Temporada</option>
+                        <option className={style.formOption}>Seleccione Temporada</option>
                         <option className={style.formOption} value="Verano">Verano</option>
                         <option className={style.formOption} value="Otoño">Otoño</option>
                         <option className={style.formOption} value="Invierno">Invierno</option>

@@ -2,7 +2,7 @@ const { Router } = require("express");
 const {postActivities, getAllActivities, deleteActivities} = require('../controllers/activityControllers')
 
 const activitiesRouter = Router();
-
+// En esta ruta nos llegan los datos por body para crear una nueva actividad
 activitiesRouter.post('/', async (req, res) => {
     const {name, difficulty, duration, season, pais } = req.body
     
@@ -18,7 +18,7 @@ activitiesRouter.post('/', async (req, res) => {
         }
 
 })
-
+// En esta ruta traemos todos las actividades creadas
 activitiesRouter.get('/', async (req, res ) => {
 
         try {
@@ -29,12 +29,13 @@ activitiesRouter.get('/', async (req, res ) => {
         }
 })
 
+// En esta ruta se trae el id de la actividad que se desea eliminar
 activitiesRouter.delete('/:id', async (req, res)=>{
     const { id } = req.params;
     
     try {
         if(!id){
-            throw Error(`${id} no existe el id que desea eliminar`)
+            throw Error(`no existe la actividad con id: ${id}`)
         }else{
             const deleteActivity = await deleteActivities(id)
             res.status(200).json(deleteActivity)
@@ -45,7 +46,7 @@ activitiesRouter.delete('/:id', async (req, res)=>{
     }
 })
 
-// Handle requests to unknown routes
+// Aqui controlamos las rutas desconocidas
 activitiesRouter.all('*', (req, res) => {
     res.status(404).send(`Ruta Desconocida: ${req.method} ${req.originalUrl}`);
 });
