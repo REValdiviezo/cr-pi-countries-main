@@ -169,11 +169,6 @@ const Form = () => {
                 </div>
                 <div className={style.formContainBtn}>
                     <div>
-                        <NavLink to={'/home'}>
-                            <button className={style.formBtn}>Home</button>
-                        </NavLink>
-                    </div>
-                    <div>
                         <button className={style.formBtn} type="submit" disabled={disabled ||
                             errors.name ||
                             errors.difficulty ||

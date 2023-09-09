@@ -1,10 +1,9 @@
 import Cards from '../../components/Cards/Cards'
-import Nav from '../../components/Nav/Nav';
 import FiltroOrdenamiento from '../../components/FiltroOrdenamiento/FiltroOrdenamiento';
 import Paginado from '../../components/Paginado/Paginado';
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
-import { getCountries, onSearch, orderByName, orderByPopulation,filterCountryByContinent } from "../../redux/action";
+import { getCountries, orderByName, orderByPopulation,filterCountryByContinent } from "../../redux/action";
 import { useLocation } from 'react-router-dom';
 import style from './home.module.css';
 
@@ -39,9 +38,10 @@ const Home = () => {
     // Funcion encargada del filtro por orden alfabetico
     const handlerOrderByName = (event) => {
         event.preventDefault();
-        dispatch(orderByName(event.target.value))
+        const {value} = event.target;
+        dispatch(orderByName(value))
         setCurrentPage(1);
-        setOrden(`Ordenado ${event.target.value}`)
+        setOrden(`Ordenado ${value}`)
     }
     // Funcion encargada del filtro por orden de poblacion
     const handlerByPopulation = (event) => {
@@ -53,15 +53,12 @@ const Home = () => {
 
 
 
-    const location = useLocation();
-
+    
+console.log(location);
     // El componente home se encarga de renderizar los componentes:
     // Nav - FiltroOrdenamiento - Paginado - Cards
     return (
         <div className={style.homeContain}>
-            <div>
-                {location.pathname == '/home' && <Nav onSearch={onSearch} />}
-            </div>
             <div>
                 <FiltroOrdenamiento 
                 handleClick={handleClick}
