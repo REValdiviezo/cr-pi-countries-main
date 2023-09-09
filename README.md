@@ -16,18 +16,18 @@
 
  ## Que se quiere lograr con el proyecto!
  
-La idea general es crear una aplicación en la cual se puedan ver distintas recetas de comida junto con información relevante de las mismas utilizando la api externa [spoonacular](https://spoonacular.com/food-api) y a partir de ella poder, entre otras cosas:
+La idea general es crear una aplicación en la cual se puedan ver los distintos paises junto con información relevante utilizando un archivo JSON que cargamos a la base de datos y a partir de ella poder, entre otras cosas:
 
-  - Buscar recetas
+  - Buscar paises
   - Filtrarlos / Ordenarlos
-  - Crear nuevas recetas propias
+  - Crear actividades turisticas
 
 #### Tecnologías necesarias:
 - [ ] React
 - [ ] Redux
 - [ ] Express
 - [ ] Sequelize - Postgres
-- [ ] CSS Puro
+- [ ] CSS (style components)
 
 #### Frontend
 
@@ -37,96 +37,116 @@ __Pagina inicial__: deben armar una landing page con
 - [ ] Alguna imagen de fondo representativa al proyecto
 - [ ] Botón para ingresar al home (`Ruta principal`)
 
-![landing](https://raw.githubusercontent.com/REValdiviezo/cr-pi-countries-main/master/countries.png)
+![landing](https://raw.githubusercontent.com/REValdiviezo/cr-pi-countries-main/master/asset/Landing.png)
 
 __Ruta principal__: debe contener
-- [ ] Input de búsqueda para encontrar recetas por nombre
-- [ ] Área donde se verá el listado de recetas. Deberá mostrar su:
+- [ ] Input de búsqueda para encontrar paises por nombre
+- [ ] Área donde se verá el listado de paises. Deberá mostrar su:
   - Imagen
   - Nombre
-  - Tipo de dieta (vegetariano, vegano, apto celíaco, etc)
-- [ ] Botones/Opciones para filtrar por por tipo de dieta
-- [ ] Botones/Opciones para ordenar tanto ascendentemente como descendentemente las recetas por orden alfabético y por puntuación
-- [ ] Paginado para ir buscando y mostrando las siguientes recetas, 9 recetas por pagina, mostrando las primeros 9 en la primer pagina.
+  - Continente
+  - Poblacion
+- [ ] Botones/Opciones para ordenar alfabetico tanto ascendentemente como descendentemente
+- [ ] Botones/Opciones para filtrar por continente
+- [ ] Botones/Opciones para filtrar por cantidad de poblacion
+- [ ] Botones/Opciones para filtrar por actividad turistica
+- [ ] Paginado para ir buscando y mostrando los siguientes paises, 10 por pagina, mostrando los primeros 10 en la primer pagina.
 
-![home](https://user-images.githubusercontent.com/82724532/177238394-fa5978d7-0465-4977-a09f-16db25de14e3.jpg)
+![home](https://raw.githubusercontent.com/REValdiviezo/cr-pi-countries-main/master/asset/Home.png)
 
 
-__Ruta de detalle de receta__: debe contener
-- [ ] Los campos mostrados en la ruta principal para cada receta (imagen, nombre, tipo de plato y tipo de dieta)
-- [ ] Resumen del plato
-- [ ] Puntuación
-- [ ] Nivel de "comida saludable"
-- [ ] Paso a paso
+__Ruta de detalle del pais__: debe contener
+- [ ] El campo muestra informacion extra como (imagen, ID, nombre, capital, continente, subregion, area y poblacion)
+- [ ] Lista de las actividades asociadas a dicho pais con informacion: (nombre de la actividad, dificultad, duracion y la estacion del año)
 
-![detalle](https://user-images.githubusercontent.com/82724532/177237856-b44175e7-168c-44f9-92e2-9513c093f2e8.jpg)
+![detalle](https://raw.githubusercontent.com/REValdiviezo/cr-pi-countries-main/master/asset/Detail.png)
 
-__Ruta de creación de recetas__: debe contener
+__Ruta de creación de actividad turistica__: debe contener
 - [ ] Un formulario __controlado con JavaScript__ con los siguientes campos:
   - Nombre
-  - Resumen del plato
-  - Puntuación
-  - Nivel de "comida saludable"
-  - Paso a paso
-- [ ] Posibilidad de seleccionar/agregar uno o más tipos de dietas
-- [ ] Botón/Opción para crear una nueva receta
+  - Dificultad (1 a 5)
+  - Duracion en horas
+  - Lista para seleccionar estacion del año
+- [ ] Posibilidad de seleccionar una estacion del año
+- [ ] Posibilidad de seleccionar/agregar uno o más paises
+- [ ] Botón para crear la nueva actividad
 
-![creacion](https://user-images.githubusercontent.com/82724532/177237964-e8085e9f-6160-43d4-bce2-f5f48a24db1b.jpg)
+![creacion](https://raw.githubusercontent.com/REValdiviezo/cr-pi-countries-main/master/asset/Form.png)
 
 > El formulario de creación está validado con JavaScript y no sólo con validaciones HTML. 
 
-__Componentes de Not Found:
- - [ ] Componentes para renderizar cuando no hay resultados de la búsqueda
- - No se encuentra receta ni id
 
-![notfoundrecipe](https://user-images.githubusercontent.com/82724532/177237983-7a57856e-bdb4-4c0b-a658-237d8b5f0a01.jpg)
-
-- Se ingresa una ruta que no existe.
-
-![notfoundpage](https://user-images.githubusercontent.com/82724532/177238001-56b68fb0-11ad-4407-bf33-9888686a4ba5.jpg)
-
-#### Base de datos
+### **🖱 BASE DE DATOS**
 
 #### Tecnologías necesarias:
 
 - [ ] PostgreSQL
 
 CARACTERISTICAS:
-
 El modelo de la base de datos tiene las siguientes entidades:
 
-- [ ] Receta con las siguientes propiedades:
-  - ID: *
-  - Nombre *
-  - Resumen del plato *
-  - Puntuación
-  - Nivel de "comida saludable"
-  - Paso a paso
-- [ ] Tipo de dieta con las siguientes propiedades:
-  - ID
-  - Nombre
+**📍 MODELO 1 | Country**
 
-#### Backend
+-  ID (Código de tres letras). \*
+-  Nombre. \*
+-  Imagen de la bandera. \*
+-  Continente. \*
+-  Capital. \*
+-  Subregión.
+-  Área.
+-  Población. \*
+
+<br />
+
+**📍 MODELO 2 | Activity**
+
+-  ID. \*
+-  Nombre. \*
+-  Dificultad (número del 1 al 5). \*
+-  Duración (en horas).
+-  Temporada (Verano, Otoño, Invierno o Primavera). \*
+
+<br />
+
+---
+
+<br />
+
+### **🖱 BACK-END**
 
 #### Tecnologías necesarias:
 - [ ] Node JS
 - [ ] Express
 - [ ] Sequelize
-- [ ] 
 
 CARACTERISTICAS:
 
-- [ ] __GET /recipes?name="..."__:
-  - Obtener un listado de las recetas que contengan la palabra ingresada como query parameter
-  - Si no existe ninguna receta mostrar un mensaje adecuado
-- [ ] __GET /recipes/{idReceta}__:
-  - Obtener el detalle de una receta en particular
-  - Debe traer solo los datos pedidos en la ruta de detalle de receta
-  - Incluir los tipos de dieta asociados
-- [ ] __GET /types__:
-  - Obtener todos los tipos de dieta posibles
-- [ ] __POST /recipe__:
-  - Recibe los datos recolectados desde el formulario controlado de la ruta de creación de recetas por body
-  - Crea una receta en la base de datos
+#### **📍 GET | /countries**
+
+-  Obtiene un arreglo de objetos, donde cada objeto es un país con toda su información.
+
+#### **📍 GET | /countries/:idPais**
+
+-  Esta ruta obtiene el detalle de un país específico. Es decir que devuelve un objeto con la información pedida en el detalle de un país.
+-  El país es recibido por parámetro (ID de tres letras del país).
+-  Tiene que incluir los datos de las actividades turísticas asociadas a este país.
+
+#### **📍 GET | /countries/name?="..."**
+
+-  Esta ruta debe obtener todos aquellos países que coinciden con el nombre recibido por query. (No es necesario que sea una coincidencia exacta).
+-  Debe poder buscarlo independientemente de mayúsculas o minúsculas.
+-  Si no existe el país, debe mostrar un mensaje adecuado.
+
+#### **📍 POST | /activities**
+
+-  Esta ruta recibirá todos los datos necesarios para crear una actividad turística y relacionarla con los países solicitados.
+-  Toda la información debe ser recibida por body.
+-  Debe crear la actividad turística en la base de datos, y esta debe estar relacionada con los países indicados (al menos uno).
+
+#### **📍 GET | /activities**
+
+-  Obtiene un arreglo de objetos, donde cada objeto es una actividad turística.
+
+
 
   <img src="./countries.png" />
